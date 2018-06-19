@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Detail Options" max_length="1024" name="u_detail_opt" type="glide_list"/>
         <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other" type="string"/>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Requested for email" mandatory="true" max_length="40" name="u_requested_for_email" type="string"/>
@@ -9,6 +10,13 @@
                 <element label="Human Resources" sequence="0" value="hr"/>
                 <element label="Facilities" sequence="1" value="facilities"/>
                 <element label="Legal" sequence="2" value="legal"/>
+            </choice>
+        </element>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" choice="3" label="Sample Options" mandatory="true" max_length="1024" name="u_samp_opt" type="glide_list">
+            <choice>
+                <element label="Others" value="Others"/>
+                <element label="Val1" value="Val1"/>
+                <element label="Val2" value="Val2"/>
             </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" choice="3" default="hr1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
